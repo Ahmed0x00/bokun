@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/checkout.json/options/shopping-cart/{sessionId}",
+    "method": "GET",
+    "operationId": "checkoutOptionsForShoppingCart",
+    "summary": "Get checkout options for the shopping cart specified",
+    "has_security": false
+  },
+  {
+    "path": "/checkout.json/submit",
+    "method": "POST",
+    "operationId": "processCheckout",
+    "summary": "Process the checkout request",
+    "has_security": false
+  },
+  {
+    "path": "/checkout.json/confirm-reserved/{code}",
+    "method": "POST",
+    "operationId": "confirmReservedCheckout",
+    "summary": "Confirm a reservation made via checkout",
+    "has_security": false
+  }
+]

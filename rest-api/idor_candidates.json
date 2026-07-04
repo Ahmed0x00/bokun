@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/accommodation.json/{id}/check-availability",
+    "method": "POST",
+    "operationId": "checkAccommodationAvailability",
+    "summary": "Check availability for a selected Accommodation"
+  },
+  {
+    "path": "/accommodation.json/{id}",
+    "method": "GET",
+    "operationId": "getAccommodation",
+    "summary": "Get Accommodation by ID"
+  },
+  {
+    "path": "/accommodation.json/{id}/rooms",
+    "method": "GET",
+    "operationId": "getRoomsByRoomType",
+    "summary": "Get a list of all rooms for a particular Accommodation."
+  },
+  {
+    "path": "/activity.json/{id}/upcoming-availabilities/{max}",
+    "method": "GET",
+    "operationId": "getUpcomingAvailabilities",
+    "summary": "Get the next upcoming Activity availabilities"
+  },
+  {
+    "path": "/activity.json/{id}/pickup-places",
+    "method": "GET",
+    "operationId": "getPickupPlaces",
+    "summary": "Get Pickup / Dropoff places for an Activity"
+  },
+  {
+    "path": "/activity.json/{id}/availabilities",
+    "method": "GET",
+    "operationId": "getActivityAvailabilities",
+    "summary": "Get Activity availabilities for an interval"
+  },
+  {
+    "path": "/activity.json/{id}/price-list",
+    "method": "GET",
+    "operationId": "priceList",
+    "summary": "Get Activity price list"
+  },
+  {
+    "path": "/activity.json/{id}",
+    "method": "GET",
+    "operationId": "getActivity",
+    "summary": "Get Activity by ID"
+  },
+  {
+    "path": "/route.json/{id}",
+    "method": "GET",
+    "operationId": "getRoute",
+    "summary": "Get Route by ID"
+  },
+  {
+    "path": "/booking.json/{id}/summary",
+    "method": "GET",
+    "operationId": "getSummary",
+    "summary": "Get summary for given booking"
+  },
+  {
+    "path": "/booking.json/activity-booking/{id}",
+    "method": "GET",
+    "operationId": "activityBooking",
+    "summary": "Show activity booking information"
+  },
+  {
+    "path": "/booking.json/route-booking/{id}",
+    "method": "GET",
+    "operationId": "routeBooking",
+    "summary": "Show route booking information"
+  },
+  {
+    "path": "/booking.json/accommodation-booking/{id}",
+    "method": "GET",
+    "operationId": "accommodationBooking",
+    "summary": "Show accommodation booking information"
+  },
+  {
+    "path": "/product-list.json/{id}",
+    "method": "GET",
+    "operationId": "getProductListById",
+    "summary": "Get Product List by ID"
+  }
+]

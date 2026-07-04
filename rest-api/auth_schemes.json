@@ -1,0 +1,38 @@
+{
+  "v1_security": [
+    {
+      "AccessKey": [],
+      "SecretKey": []
+    }
+  ],
+  "v1_schemes": {
+    "AccessKey": {
+      "type": "apiKey",
+      "name": "access-key",
+      "in": "header"
+    },
+    "SecretKey": {
+      "type": "apiKey",
+      "name": "secret-key",
+      "in": "header"
+    }
+  },
+  "v2_security": [
+    {
+      "AccessKey": [],
+      "SecretKey": []
+    }
+  ],
+  "v2_schemes": {
+    "AccessKey": {
+      "type": "apiKey",
+      "name": "access-key",
+      "in": "header"
+    },
+    "SecretKey": {
+      "type": "apiKey",
+      "name": "secret-key",
+      "in": "header"
+    }
+  }
+}

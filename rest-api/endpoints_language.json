@@ -1,0 +1,9 @@
+[
+  {
+    "path": "/language.json/findAll",
+    "method": "GET",
+    "operationId": "allLanguages",
+    "summary": "Get all Languages supported by the Channel",
+    "has_security": false
+  }
+]

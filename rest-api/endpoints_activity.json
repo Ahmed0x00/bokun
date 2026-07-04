@@ -1,0 +1,128 @@
+[
+  {
+    "path": "/activity.json/{id}/upcoming-availabilities/{max}",
+    "method": "GET",
+    "operationId": "getUpcomingAvailabilities",
+    "summary": "Get the next upcoming Activity availabilities",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/slug/{slug}",
+    "method": "GET",
+    "operationId": "findActivityBySlug",
+    "summary": "Look up Activity by slug",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/{id}/pickup-places",
+    "method": "GET",
+    "operationId": "getPickupPlaces",
+    "summary": "Get Pickup / Dropoff places for an Activity",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/search",
+    "method": "POST",
+    "operationId": "activitySearch",
+    "summary": "Search activities and availability",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/{id}/availabilities",
+    "method": "GET",
+    "operationId": "getActivityAvailabilities",
+    "summary": "Get Activity availabilities for an interval",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/active-ids",
+    "method": "GET",
+    "operationId": "getActivityIds",
+    "summary": "Get IDs of all active Activities that can be booked",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/list-updated",
+    "method": "GET",
+    "operationId": "getUpdatedActivities",
+    "summary": "Get ids/timestamps of all Activities modified in specified date range",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/list-by-id",
+    "method": "GET",
+    "operationId": "activityListByIds",
+    "summary": "Get a list of Activities matching the IDs provided",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/{id}/price-list",
+    "method": "GET",
+    "operationId": "priceList",
+    "summary": "Get Activity price list",
+    "has_security": false
+  },
+  {
+    "path": "/activity.json/{id}",
+    "method": "GET",
+    "operationId": "getActivity",
+    "summary": "Get Activity by ID",
+    "has_security": false
+  },
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/activity",
+    "method": "POST",
+    "operationId": "addActivityToSessionCart",
+    "summary": "Add activity booking to a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/question.json/activity-booking/{activityBookingId}",
+    "method": "GET",
+    "operationId": "forActivityBooking",
+    "summary": "Get questions for the activity booking specified",
+    "has_security": false
+  },
+  {
+    "path": "/question.json/activity-booking/{activityBookingId}",
+    "method": "POST",
+    "operationId": "answerActivityBooking",
+    "summary": "Answer questions for the activity booking specified",
+    "has_security": false
+  },
+  {
+    "path": "/cart.json/{sessionId}/activity",
+    "method": "POST",
+    "operationId": "cartAddActivity",
+    "summary": "Add an activity to the shopping cart",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/activity-booking/reserve-and-confirm",
+    "method": "POST",
+    "operationId": "reserveAndConfirmActivityBooking",
+    "summary": "Reserve and confirm a single activity booking (bypasses shopping cart)",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/activity-booking/{id}",
+    "method": "GET",
+    "operationId": "activityBooking",
+    "summary": "Show activity booking information",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/activity-booking/{confirmationCode}/customer-status/{status}",
+    "method": "GET",
+    "operationId": "setActivityBookingCustomerStatus",
+    "summary": "Change the arrived status of an activity booking",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/activity-booking/{productConfirmationCode}/ticket",
+    "method": "GET",
+    "operationId": "getActivityTicket",
+    "summary": "Get ticket for given activity booking",
+    "has_security": false
+  }
+]

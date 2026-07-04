@@ -1,0 +1,58 @@
+[
+  {
+    "path": "/shopping-cart.json/session/{sessionId}",
+    "method": "GET",
+    "operationId": "getSessionCart",
+    "summary": "Get a session shopping cart",
+    "has_security": false
+  },
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/remove-room/{roomBookingId}",
+    "method": "GET",
+    "operationId": "removeRoomFromSessionCart",
+    "summary": "Remove a room booking from a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/remove-extra/{bType}/{bId}/{eId}",
+    "method": "GET",
+    "operationId": "removeExtraBookingFromSessionCart",
+    "summary": "Remove an extra booking from an existing parent booking in a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/remove-accommodation/{accommodationBookingId}",
+    "method": "GET",
+    "operationId": "removeAccommodationFromSessionCart",
+    "summary": "Remove an accommodation booking from a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/remove-activity/{activityBookingId}",
+    "method": "GET",
+    "operationId": "removeActivityFromSessionCart",
+    "summary": "Remove an activity booking from a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/remove-route/{routeBookingId}",
+    "method": "GET",
+    "operationId": "removeRouteFromSessionCart",
+    "summary": "Remove a route booking from a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/question.json/shopping-cart/{sessionId}",
+    "method": "GET",
+    "operationId": "forShoppingCart",
+    "summary": "Get questions for the shopping cart specified",
+    "has_security": false
+  },
+  {
+    "path": "/question.json/shopping-cart/{sessionId}",
+    "method": "POST",
+    "operationId": "answerShoppingCart",
+    "summary": "Answer questions for the shopping cart specified",
+    "has_security": false
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/cart.json/{sessionId}",
+    "method": "GET",
+    "operationId": "cartGet",
+    "summary": "Get the contents of the shopping cart with the session ID supplied.",
+    "has_security": false
+  },
+  {
+    "path": "/cart.json/{sessionId}/remove/{productBookingConfirmationCode}",
+    "method": "GET",
+    "operationId": "cartRemove",
+    "summary": "Remove a product booking from the shopping cart.",
+    "has_security": false
+  },
+  {
+    "path": "/cart.json/{sessionId}/apply-promo-code/{promoCode}",
+    "method": "GET",
+    "operationId": "cartApplyPromoCode",
+    "summary": "Apply a promo code to the shopping cart.",
+    "has_security": false
+  },
+  {
+    "path": "/cart.json/{sessionId}/remove-promo-code",
+    "method": "GET",
+    "operationId": "cartRemovePromoCode",
+    "summary": "Remove any promo code from the shopping cart.",
+    "has_security": false
+  },
+  {
+    "path": "/cart.json/{sessionId}/apply-gift-card/{giftCardCode}",
+    "method": "GET",
+    "operationId": "cartApplyGiftCard",
+    "summary": "Apply a gift card to the shopping cart.",
+    "has_security": false
+  },
+  {
+    "path": "/cart.json/{sessionId}/track-affiliate/{affiliateCode}",
+    "method": "GET",
+    "operationId": "cartApplyAffiliate",
+    "summary": "Apply an affiliate tracking code to the shopping cart.",
+    "has_security": false
+  }
+]

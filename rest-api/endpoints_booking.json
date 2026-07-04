@@ -1,0 +1,121 @@
+[
+  {
+    "path": "/question.json/booking/{bookingId}",
+    "method": "GET",
+    "operationId": "forBooking",
+    "summary": "Get questions for the booking specified",
+    "has_security": false
+  },
+  {
+    "path": "/question.json/booking/{bookingId}",
+    "method": "POST",
+    "operationId": "answerBooking",
+    "summary": "Answer questions for the booking specified",
+    "has_security": false
+  },
+  {
+    "path": "/checkout.json/options/booking-request",
+    "method": "POST",
+    "operationId": "checkoutOptionsForBookingRequest",
+    "summary": "Get checkout options for the booking request specified",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/guest/{sessionId}/reserve",
+    "method": "POST",
+    "operationId": "guestReserve",
+    "summary": "Reserve the booking for the guest (before payment)",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/guest/{sessionId}/reserved",
+    "method": "GET",
+    "operationId": "guestGetReserved",
+    "summary": "Get a list of reserved bookings for the guest (if any exist)",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/{confirmationCode}/move-back-to-cart/session/{sessionId}",
+    "method": "GET",
+    "operationId": "moveReservedBookingBackToSessionCart",
+    "summary": "Move a reserved booking back to a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/{confirmationCode}/abort-reserved",
+    "method": "GET",
+    "operationId": "abortReservedBooking",
+    "summary": "Abort a reserved booking",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/{confirmationCode}/payment-error",
+    "method": "POST",
+    "operationId": "paymentError",
+    "summary": "Indicate that an error occurred in payment",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/{confirmationCode}/confirm",
+    "method": "POST",
+    "operationId": "confirmBooking",
+    "summary": "Confirm a booking (after payment)",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/cancel-booking/{confirmationCode}",
+    "method": "POST",
+    "operationId": "cancelBooking",
+    "summary": "Cancel for given booking",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/booking/{confirmationCode}",
+    "method": "GET",
+    "operationId": "bookingByConfirmationCode",
+    "summary": "Fetch a booking by confirmation code or id",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/{id}/summary",
+    "method": "GET",
+    "operationId": "getSummary",
+    "summary": "Get summary for given booking",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/edit",
+    "method": "POST",
+    "operationId": "bookingExecuteEdit",
+    "summary": "Edit bookings",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/product-booking-search",
+    "method": "POST",
+    "operationId": "productBookingSearch",
+    "summary": "Search for product bookings and return a list of booking information",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/booking-search",
+    "method": "POST",
+    "operationId": "bookingSearch",
+    "summary": "Search for bookings and return a list of booking information",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/cancel-product-booking/{productConfirmationCode}",
+    "method": "POST",
+    "operationId": "cancelProductBooking",
+    "summary": "Cancel for given product booking",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/transport-booking/{productConfirmationCode}/ticket",
+    "method": "GET",
+    "operationId": "getTransportTicket",
+    "summary": "Get ticket for given transport booking",
+    "has_security": false
+  }
+]

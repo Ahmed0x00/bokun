@@ -1,0 +1,9 @@
+[
+  {
+    "path": "/category.json/{productType}",
+    "method": "GET",
+    "operationId": "categoriesByProductType",
+    "summary": "Get all categories for the specified product type",
+    "has_security": false
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/route",
+    "method": "POST",
+    "operationId": "addRouteToSessionCart",
+    "summary": "Add route booking to a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/route.json/list",
+    "method": "GET",
+    "operationId": "listRoutes",
+    "summary": "List ",
+    "has_security": false
+  },
+  {
+    "path": "/route.json/check-availability",
+    "method": "POST",
+    "operationId": "checkRouteAvailability",
+    "summary": "Get availability report for a particular route",
+    "has_security": false
+  },
+  {
+    "path": "/route.json/{id}",
+    "method": "GET",
+    "operationId": "getRoute",
+    "summary": "Get Route by ID",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/route-booking/reserve-and-confirm",
+    "method": "POST",
+    "operationId": "reserveAndConfirmRouteBooking",
+    "summary": "Reserve and confirm a single route booking (bypasses shopping cart)",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/route-booking/{id}",
+    "method": "GET",
+    "operationId": "routeBooking",
+    "summary": "Show route booking information",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/route-booking/{confirmationCode}/customer-status/{status}",
+    "method": "GET",
+    "operationId": "setRouteBookingCustomerStatus",
+    "summary": "Change the arrived status of a route booking",
+    "has_security": false
+  }
+]

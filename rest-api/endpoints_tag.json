@@ -1,0 +1,9 @@
+[
+  {
+    "path": "/tag.json/groups",
+    "method": "GET",
+    "operationId": "getTagGroups",
+    "summary": "Get the tag groups",
+    "has_security": false
+  }
+]

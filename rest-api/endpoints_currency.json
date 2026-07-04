@@ -1,0 +1,9 @@
+[
+  {
+    "path": "/currency.json/findAll",
+    "method": "GET",
+    "operationId": "allCurrencies",
+    "summary": "Get all Supported Currencies",
+    "has_security": false
+  }
+]

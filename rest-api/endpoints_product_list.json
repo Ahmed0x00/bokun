@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/product-list.json/slug/{slug}",
+    "method": "GET",
+    "operationId": "getProductListBySlug",
+    "summary": "Get Product List by slug",
+    "has_security": false
+  },
+  {
+    "path": "/product-list.json/list",
+    "method": "GET",
+    "operationId": "getAllProductLists",
+    "summary": "Get all available Product Lists",
+    "has_security": false
+  },
+  {
+    "path": "/product-list.json/{id}",
+    "method": "GET",
+    "operationId": "getProductListById",
+    "summary": "Get Product List by ID",
+    "has_security": false
+  }
+]

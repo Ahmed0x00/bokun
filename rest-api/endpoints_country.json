@@ -1,0 +1,9 @@
+[
+  {
+    "path": "/country.json/findAll",
+    "method": "GET",
+    "operationId": "allCountries",
+    "summary": "Get all supported countries/nationalities",
+    "has_security": false
+  }
+]

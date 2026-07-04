@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/accommodation.json/search",
+    "method": "POST",
+    "operationId": "accommodationSearch",
+    "summary": "Search accommodations and availability",
+    "has_security": false
+  },
+  {
+    "path": "/accommodation.json/check-room-availability",
+    "method": "POST",
+    "operationId": "checkRoomAvailability",
+    "summary": "Get a list of all rooms available for a given stay interval.",
+    "has_security": false
+  },
+  {
+    "path": "/accommodation.json/{id}/check-availability",
+    "method": "POST",
+    "operationId": "checkAccommodationAvailability",
+    "summary": "Check availability for a selected Accommodation",
+    "has_security": false
+  },
+  {
+    "path": "/accommodation.json/{id}",
+    "method": "GET",
+    "operationId": "getAccommodation",
+    "summary": "Get Accommodation by ID",
+    "has_security": false
+  },
+  {
+    "path": "/accommodation.json/{id}/rooms",
+    "method": "GET",
+    "operationId": "getRoomsByRoomType",
+    "summary": "Get a list of all rooms for a particular Accommodation.",
+    "has_security": false
+  },
+  {
+    "path": "/accommodation.json/availabilities",
+    "method": "GET",
+    "operationId": "getAccommodationAvailabilities",
+    "summary": "Get room availabilities for one or more accommodations over an interval",
+    "has_security": false
+  },
+  {
+    "path": "/accommodation.json/slug/{slug}",
+    "method": "GET",
+    "operationId": "findAccommodationBySlug",
+    "summary": "Look up Accommodation by slug",
+    "has_security": false
+  },
+  {
+    "path": "/shopping-cart.json/session/{sessionId}/accommodation",
+    "method": "POST",
+    "operationId": "addAccommodationToSessionCart",
+    "summary": "Add accommodation booking to a session cart",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/accommodation-booking/reserve-and-confirm",
+    "method": "POST",
+    "operationId": "reserveAndConfirmAccommodationBooking",
+    "summary": "Reserve and confirm a single accommodation booking (bypasses shopping cart)",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/accommodation-booking/{id}",
+    "method": "GET",
+    "operationId": "accommodationBooking",
+    "summary": "Show accommodation booking information",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/accommodation-booking/{confirmationCode}/customer-status/{status}",
+    "method": "GET",
+    "operationId": "setAccommodationBookingCustomerStatus",
+    "summary": "Change the arrived status of an accommodation booking",
+    "has_security": false
+  },
+  {
+    "path": "/booking.json/accommodation-booking/{productConfirmationCode}/ticket",
+    "method": "GET",
+    "operationId": "getAccommodationTicket",
+    "summary": "Get ticket for given accommodation booking",
+    "has_security": false
+  }
+]

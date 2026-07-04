@@ -1,0 +1,15 @@
+{
+  "activity": 18,
+  "accommodation": 12,
+  "route": 7,
+  "booking": 17,
+  "cart": 6,
+  "checkout": 3,
+  "shopping_cart": 8,
+  "product_list": 3,
+  "currency": 1,
+  "language": 1,
+  "tag": 1,
+  "category": 1,
+  "country": 1
+}
