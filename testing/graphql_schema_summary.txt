@@ -1,0 +1,1769 @@
+GRAPHQL SCHEMA SUMMARY
+======================================================================
+
+ActivityBookingAnswerInputInput:
+  activityId: Long (input)
+  answers: AnswerInputInput (input)
+  bookingId: Long (input)
+  dropoffAnswers: AnswerInputInput (input)
+  passengers: PassengerQuestionsInputInput (input)
+  pickupAnswers: AnswerInputInput (input)
+
+ActivityBookingParticipantType:
+  bookingId(): Long
+  category(): PassengerCategory
+  index(): Int
+  leadPassenger(): Boolean
+
+ActivityBookingQuestionsType:
+  activityId(): Long
+  activityTitle(): String
+  bookingId(): Long
+  dropoffQuestions(): None
+  passengers(): None
+  pickupQuestions(): None
+  questions(): None
+
+ActivityCalendarAvailabilityResponseType:
+  allowPast(): Boolean
+  availabilityGoesLiveOn(): Date
+  cutoffMinutes(): Int
+  firstAvailableDate(): Date
+  firstOfMonth(): Date
+  isFlexible(): Boolean
+  lastOfMonth(): Date
+  month(): Int
+  requiredPax(): Int
+  weeks(): CalendarWeek
+  year(): Int
+
+AddExtrasToExperienceBookingInputInput:
+  dropoffPlaceDescription: String (input)
+  dropoffPlaceId: String (input)
+  experienceBookingId: String (input)
+  perBookingExtras: None (input)
+  perPersonExtras: None (input)
+  pickupPlaceDescription: String (input)
+  pickupPlaceId: String (input)
+
+Address:
+  addressLine1(): String
+  addressLine2(): String
+  addressLine3(): String
+  city(): String
+  countryCode(): String
+  geoPoint(): GeoPoint
+  id(): ID
+  origin(): LocationOrigin
+  originId(): String
+  postalCode(): String
+  state(): String
+
+AddressInput:
+  addressLine1: String (input)
+  addressLine2: String (input)
+  addressLine3: String (input)
+  city: String (input)
+  countryCode: String (input)
+  geoPoint: GeoPointInput (input)
+  id: String (input)
+  origin: LocationOrigin (input)
+  originId: String (input)
+  postalCode: String (input)
+  state: String (input)
+
+Affiliate:
+  id(): ID
+  name(): String
+
+AffiliateInvoice:
+  currency(): String
+  customLineItems(): None
+  id(): ID
+  issueDate(): String
+  issuer(): Affiliate
+  lineItems(): None
+  recipient(): Vendor
+  totalDue(): Float
+
+AffiliateInvoiceLineItemType:
+  commission(): Float
+  currency(): String
+  discountedTotalPrice(): Float
+  discountedUnitPrice(): Float
+  id(): ID
+  name(): String
+  productInvoiceLineItem(): LineItem
+  quantity(): Int
+  totalExcludedTax(): Float
+  totalIncludedTax(): Float
+  totalPrice(): Float
+  totalTax(): Float
+  unitPrice(): Float
+
+Agent:
+  company(): Company
+  created(): LocalDateTime
+  id(): ID
+  lastModified(): LocalDateTime
+  name(): String
+  serviceContact(): Contact
+  signupStatus(): AgentSignupStatusType
+
+AgentInvoice:
+  currency(): String
+  id(): ID
+  issueDate(): String
+  issuer(): Vendor
+  lineItems(): None
+  recipient(): Agent
+  totalCommission(): Float
+  totalDue(): Float
+
+AgentInvoiceLineItemType:
+  commission(): Float
+  currency(): String
+  discountedTotalPrice(): Float
+  discountedUnitPrice(): Float
+  id(): ID
+  name(): String
+  productInvoiceLineItem(): LineItem
+  quantity(): Int
+  totalExcludedTax(): Float
+  totalIncludedTax(): Float
+  totalPrice(): Float
+  totalTax(): Float
+  unitPrice(): Float
+
+AnswerBookingQuestionsInputInput:
+  activityBookings: ActivityBookingAnswerInputInput (input)
+  id: String (input)
+  mainContactDetails: AnswerInputInput (input)
+
+AnswerDtoInput:
+  questionId: String (input)
+  values: String (input)
+
+AnswerInputInput:
+  questionId: String (input)
+  required: Boolean (input)
+  requiredBeforeDeparture: Boolean (input)
+  values: None (input)
+
+AnswerOptionType:
+  label(): String
+  value(): String
+
+AppPricePlan:
+  appId(): ID
+  bookingFeePercentage(): Float
+  creationDate(): String
+  discountedYearlyPrice(): Boolean
+  id(): ID
+  monthlyAmount(): Float
+  name(): String
+  oneTimeAmount(): Float
+  overwriteName(): String
+  type(): AppPricePlanEnumType
+  yearlyAmount(): Float
+
+AppliedGiftCard:
+  lastCharacters(): String
+
+AttributeInput:
+  key: String (input)
+  value: String (input)
+
+AvailableDate:
+  availabilityCount(): Int
+  availableRates(): AvailableRate
+  currency(): String
+  date(): String
+  isPickupSoldOut(): Boolean
+  lowestTotalPassengerPrice(): Float
+  numberOfAvailableParticipantsSlots(): Int
+  numberOfAvailablePickupSlots(): Int
+  numberOfBookedParticipantsSlots(): Int
+  numberOfParticipantsSlots(): Int
+  startTime(): ExperienceStartTime
+  unlimitedParticipantsSlots(): Boolean
+  unlimitedPickupSlots(): Boolean
+  zonedDateAndTime(): String
+
+AvailableExtra:
+  extra(): Extra
+  pricePerUnit(): Float
+  pricePerUnitByPassengerCategory(): PricePerPassenger
+
+AvailableRate:
+  availableExtras(): AvailableExtra
+  dropoffPricePerBooking(): Float
+  dropoffPricePerPassenger(): PricePerPassenger
+  dropoffSeatsAvailable(): Boolean
+  pickupPricePerBooking(): Float
+  pickupPricePerPassenger(): PricePerPassenger
+  pickupSeatsAvailable(): Boolean
+  pricePerBooking(): Float
+  pricePerPassenger(): PricePerPassenger
+  rate(): ExperienceRate
+  totalPassengerPrice(): Float
+
+BookableExtraPriceType:
+  discount(): Money
+  originalPrice(): String
+  originalPriceAsMoney(): Money
+  priceWithDiscount(): Money
+  priceWithDiscountAsText(): String
+
+BookableExtraType:
+  bookedQuantity(): Int
+  description(): String
+  id(): Long
+  limitByPax(): Boolean
+  maxPerBooking(): Int
+  photo(): Image
+  pricingType(): AddonPricingType
+  selectionType(): ExtraSelectionType
+  title(): String
+
+Booking:
+  affiliate(): Affiliate
+  affiliateInvoice(): AffiliateInvoice
+  agent(): Agent
+  agentInvoice(): AgentInvoice
+  bookingChannel(): BookingChannel
+  bookingRole(): BookingRole
+  checkoutOption(): CheckoutOptionEnum
+  confirmationCode(): String
+  contactVendor(): Vendor
+  createdDate(): String
+  currency(): String
+  customer(): Customer
+  customerInvoice(): CustomerInvoice
+  experienceBookings(): None
+  externalReference(): String
+  giftCardBookings(): None
+  hasAnyPaymentAwaitingConsumption(): Boolean
+  hasUnansweredBookingQuestions(): Boolean
+  hasUnansweredRequiredBookingQuestions(): Boolean
+  id(): ID
+  language(): String
+  languageWithLocale(): String
+  lastModifiedDate(): String
+  paymentOptions(): None
+  paymentStatus(): BookingPaymentStatus
+  payments(): None
+  privacyPolicy(): String
+  promoCodeUsages(): None
+  reservedUntilDate(): String
+  salesSegment(): SalesSegmentEnum
+  seller(): Vendor
+  sellerUser(): VendorUser
+  shouldHideInvoicesInPortal(): Boolean
+  status(): BookingStatus
+  supportsPaymentAppPayments(): Boolean
+  termsAndConditions(): String
+  totalPaid(): Float
+  totalUnpaid(): Float
+  voucherHasPrices(): Boolean
+
+BookingAnswerErrorType:
+  message(): String
+  path(): String
+  questionId(): String
+  reason(): AnswerErrorType
+
+BookingChannel:
+  bookingPortalConfig(): BookingPortalConfigType
+  checkoutConfig(): CheckoutConfigType
+  facebookPixelTrackingId(): String
+  ga4TrackingId(): String
+  googleTagManagerId(): String
+  id(): ID
+  name(): String
+  uuid(): String
+
+BookingChannelConnection:
+  edges(): BookingChannelEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+BookingChannelEdge:
+  cursor(): String
+  node(): BookingChannel
+
+BookingCheckoutPaymentOption:
+  checkoutOptionType(): CheckoutOptionType
+  discountPercentage(): BigDecimal
+  dueLater(): Money
+  dueNow(): Money
+
+BookingConnection:
+  edges(): BookingEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+BookingDataInput:
+  customer: CustomerInput (input)
+  experienceBookingData: ExperienceBookingDataInput (input)
+
+BookingEdge:
+  cursor(): String
+  node(): Booking
+
+BookingFilterInput:
+  bookingChannelId: ID (input)
+  cancelDateFrom: String (input)
+  cancelDateTo: String (input)
+  confirmationCode: String (input)
+  createdDateFrom: String (input)
+  createdDateTo: String (input)
+  searchTerm: String (input)
+  sellerId: ID (input)
+  status: BookingStatus (input)
+  supplierId: ID (input)
+  travelDateFrom: String (input)
+  travelDateTo: String (input)
+
+BookingNote:
+  body(): String
+  type(): BookingNoteTypeType
+
+BookingPortalConfigType:
+  id(): ID
+  isAllowUpsell(): Boolean
+
+BookingQuestionsType:
+  activityBookings(): None
+  mainContactDetails(): None
+
+BookingSortInput:
+  descending: Boolean (input)
+  orderBy: BookingSortField (input)
+
+BookingUpdateDataInput:
+  customer: CustomerInput (input)
+  experienceBookingData: ExperienceBookingDataInput (input)
+  externalReference: String (input)
+  id: String (input)
+
+CalendarAvailability:
+  activityAvailability(): CalendarAvailabilityLight
+  availabilityCount(): Int
+  bookedCount(): Int
+  closed(): Boolean
+  id(): String
+  unlimitedAvailability(): Boolean
+
+CalendarAvailabilityLight:
+  availabilityCount(): Int
+  availabilityStatus(): ActivityAvailabilityStatus
+  bookedParticipants(): Int
+  date(): Date
+  dayOptions(): String
+  flexible(): Boolean
+  id(): String
+  localizedDate(): String
+  minParticipants(): Int
+  minParticipantsToBookNow(): Int
+  startTime(): String
+  startTimeId(): Long
+  startTimeLabel(): String
+
+CalendarDay:
+  activityAvailabilityStatus(): ActivityAvailabilityStatus
+  availabilities(): CalendarAvailability
+  date(): Int
+  dateObj(): Date
+  notInCurrentMonth(): Boolean
+  past(): Boolean
+  pastCutoff(): Boolean
+
+CalendarWeek:
+  days(): CalendarDay
+
+CancellationPenalty:
+  amountType(): PenaltyChargeType
+  hoursFromStartTime(): Int
+  id(): ID
+  penaltyAmount(): Float
+
+CancellationPenaltyInput:
+  amountType: PenaltyChargeType (input)
+  hoursFromStartTime: Int (input)
+  penaltyAmount: Float (input)
+
+CancellationPolicy:
+  id(): ID
+  name(): String
+  penalties(): None
+  policyType(): CancellationPolicyTypeEnum
+  simpleCutoffHours(): Int
+
+CancellationPolicyConnection:
+  edges(): CancellationPolicyEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+CancellationPolicyEdge:
+  cursor(): String
+  node(): CancellationPolicy
+
+CancellationPolicyInput:
+  id: String (input)
+  name: String (input)
+  penalties: CancellationPenaltyInput (input)
+  policyType: CancellationPolicyTypeEnum (input)
+  simpleCutoffHours: Int (input)
+
+Checkout:
+  appliedGiftCard(): AppliedGiftCard
+  appliedPromoCode(): String
+  booking(): Booking
+  completedDate(): String
+  createdDate(): String
+  currencyCode(): String
+  customAttributes(): CheckoutAttribute
+  customer(): Customer
+  experienceBookings(): ExperienceBooking
+  id(): ID
+  invoice(): CustomerInvoice
+  lastModifiedDate(): String
+  note(): String
+
+CheckoutAttribute:
+  key(): String
+  value(): String
+
+CheckoutAttributesUpdateInput:
+  customAttributes: AttributeInput (input)
+  note: String (input)
+
+CheckoutCompleteInput:
+  bookingData: BookingDataInput (input)
+  externalReference: String (input)
+  payment: CheckoutPaymentInput (input)
+  sendNotificationToCustomer: Boolean (input)
+
+CheckoutConfigType:
+  allowAdditionalPaymentMethods(): Boolean
+  allowDeposit(): Boolean
+  allowFullPayment(): Boolean
+  allowFullPaymentDiscount(): Boolean
+  allowGiftCards(): Boolean
+  allowNoPayment(): Boolean
+  allowPromoCodes(): Boolean
+  allowedPaymentTypes(): AllowedPaymentTypes
+  depositAllowedThreshold(): Int
+  depositAmount(): BigDecimal
+  depositPerExperience(): Boolean
+  experienceDeposits(): ExperienceDepositType
+  fullPaymentDiscount(): BigDecimal
+  fullPaymentDiscountThreshold(): Int
+  id(): ID
+  isNoPaymentDiscount(): Boolean
+  noPaymentDiscount(): BigDecimal
+  noPaymentDiscountThreshold(): Int
+  showPoweredByBokun(): Boolean
+  showTerms(): Boolean
+
+CheckoutCreateInput:
+  currencyCode: String (input)
+  customAttributes: AttributeInput (input)
+  email: String (input)
+  experiences: None (input)
+  giftCardCode: String (input)
+  note: String (input)
+  promoCode: String (input)
+
+CheckoutPaymentInput:
+  amount: Float (input)
+  currencyCode: String (input)
+  identifier: String (input)
+
+City:
+  city(): String
+  cityCode(): String
+  country(): String
+  countryCode(): String
+  geoPoint(): GeoPoint
+  id(): ID
+
+CityInput:
+  city: String (input)
+  cityCode: String (input)
+  country: String (input)
+  countryCode: String (input)
+  geoPoint: GeoPointInput (input)
+  id: String (input)
+
+Company:
+  billingAddress(): Address
+  billingContact(): Contact
+  id(): ID
+  name(): String
+  registrationAddress(): Address
+  registrationNumber(): String
+  vatRegistrationNumber(): String
+
+Contact:
+  emailAddress(): String
+  firstName(): String
+  lastName(): String
+  phoneNumber(): String
+  title(): String
+
+CreatePaymentIntentForActivityResponse:
+  paymentIntentId(): String
+
+CustomField:
+  dataType(): CustomFieldDataType
+  fieldCode(): String
+  id(): ID
+  multipleOptions(): Boolean
+  name(): String
+  options(): NameValuePair
+  placeholder(): String
+  required(): Boolean
+
+CustomFieldValue:
+  field(): CustomField
+  value(): ObjectScalar
+
+CustomLineItem:
+  currency(): String
+  discountedTotalPrice(): Float
+  discountedUnitPrice(): Float
+  id(): ID
+  name(): String
+  quantity(): Int
+  totalExcludedTax(): Float
+  totalIncludedTax(): Float
+  totalPrice(): Float
+  totalTax(): Float
+  type(): CustomLineItemType
+  unitPrice(): Float
+
+Customer:
+  acceptsEmailMarketing(): Boolean
+  addressLine1(): String
+  city(): String
+  countryCode(): String
+  createdDate(): String
+  dateOfBirth(): String
+  emailAddress(): String
+  firstName(): String
+  gender(): String
+  id(): ID
+  language(): String
+  lastName(): String
+  nationality(): String
+  octoNote(): String
+  organization(): String
+  passportExpDay(): String
+  passportExpMonth(): String
+  passportExpYear(): String
+  passportId(): String
+  personalIdNumber(): String
+  phoneNumber(): String
+  phoneNumberCountryCode(): String
+  postalCode(): String
+  state(): String
+  tags(): String
+  title(): CustomerTitle
+  uuid(): String
+
+CustomerConnection:
+  edges(): CustomerEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+CustomerEdge:
+  cursor(): String
+  node(): Customer
+
+CustomerFilterInput:
+  searchTerm: String (input)
+
+CustomerInput:
+  acceptsEmailMarketing: Boolean (input)
+  addressLine1: String (input)
+  city: String (input)
+  countryCode: String (input)
+  emailAddress: String (input)
+  firstName: String (input)
+  lastName: String (input)
+  nationality: String (input)
+  organization: String (input)
+  phoneNumber: String (input)
+  phoneNumberCountryCode: String (input)
+  postalCode: String (input)
+  state: String (input)
+  title: CustomerTitle (input)
+
+CustomerInvoice:
+  currency(): String
+  customLineItems(): None
+  discountAmount(): Float
+  discountedTotalPrice(): Float
+  id(): ID
+  issueDate(): String
+  issuer(): Vendor
+  productInvoices(): None
+  recipient(): Customer
+  totalDue(): Float
+  totalTax(): Float
+
+CustomerPayment:
+  amount(): Float
+  currency(): String
+  id(): ID
+  note(): String
+  paymentType(): PaymentType
+  transactionDate(): String
+
+CustomerSortInput:
+  descending: Boolean (input)
+  orderBy: CustomerSortField (input)
+
+Departure:
+  bookedParticipants(): Int
+  capacity(): Int
+  closedOut(): Boolean
+  date(): String
+  experience(): Experience
+  experienceBookings(): ExperienceBooking
+  id(): String
+  resources(): ResourceReduced
+  startTime(): StartTime
+  startToEnd(): String
+  unlimitedCapacity(): Boolean
+
+DepartureDay:
+  date(): String
+  departureTimes(): None
+
+DepartureTime:
+  allDay(): Boolean
+  departures(): None
+  time(): String
+
+Experience:
+  activated(): Boolean
+  barcodeType(): BarcodeType
+  bookingCutoff(): String
+  bookingType(): BookingTypeEnum
+  boxedExperienceId(): Long
+  briefDescription(): String
+  capacityType(): CapacityType
+  categories(): ActivityCategory
+  city(): City
+  coverImage(): Image
+  createdDate(): String
+  customFields(): CustomFieldValue
+  cutoffReference(): String
+  cutoffType(): CutoffType
+  defaultFromPrice(): Money
+  defaultRate(): ExperienceRate
+  description(): String
+  dropoffAllowsCustomLocation(): Boolean
+  dropoffPlaces(): Location
+  dropoffService(): Boolean
+  duration(): String
+  exclusions(): ActivityInclusionExclusionType
+  exclusionsFreeText(): String
+  experienceType(): ActivityType
+  firstActivatedDate(): String
+  fixedPassExpiryDate(): String
+  howToGetThere(): HowToGetThereType
+  id(): ID
+  images(): Image
+  inclusions(): ActivityInclusionExclusionType
+  inclusionsFreeText(): String
+  isComboProduct(): Boolean
+  isInventoryServiceProduct(): Boolean
+  isOfferAvailable(): Boolean
+  itinerary(): ItineraryPart
+  keywords(): String
+  knowBeforeYouGoFreeText(): String
+  knowBeforeYouGoItems(): ActivityKnowBeforeYouGoType
+  lastModifiedDate(): String
+  meetingPlaces(): Location
+  minAge(): Int
+  name(): String
+  originalFromPrice(): Money
+  passCapacity(): Int
+  passExpiry(): PassExpiryType
+  passengerCategories(): PassengerCategory
+  physicalDifficultyLevel(): ActivityPhysicalDifficulty
+  pickupAllowsCustomLocation(): Boolean
+  pickupCapacityLimited(): Boolean
+  pickupMinutesBefore(): Int
+  pickupNotSelectedMessage(): String
+  pickupPlaces(): PickupPlace
+  pickupService(): Boolean
+  pickupTimeIsLocationBased(): Boolean
+  pickupTimeWindowInMinutes(): Int
+  privateExperience(): Boolean
+  productCode(): String
+  rates(): ExperienceRate
+  showMessageIfPickupNotSelected(): Boolean
+  showPickupMinutesBeforeMessageOnTicket(): Boolean
+  standardMainContactQuestions(): StandardQuestion
+  standardPassengerQuestions(): StandardQuestion
+  startTimes(): ExperienceStartTime
+  supplier(): Vendor
+  themes(): ActivityAttribute
+  ticketMessage(): String
+  ticketPerParticipant(): Boolean
+  timeZone(): String
+  tripadvisorReview(): TripadvisorReview
+  vendorRole(): ProductVendorRole
+  videos(): Video
+  whatToBring(): String
+
+ExperienceBooking:
+  assignedResources(): None
+  bookedTitle(): String
+  bookingCutoffReached(): Boolean
+  bookingQuestions(): None
+  bookingStatus(): BookingStatus
+  canCustomerCancel(): Boolean
+  canCustomerCancelAndRefund(): Boolean
+  canCustomerReschedule(): Boolean
+  cancellationDate(): String
+  cancellationNote(): String
+  cancellationPolicy(): CancellationPolicy
+  cancelledBy(): String
+  childComboBookings(): None
+  contractIds(): Long
+  createdDate(): String
+  customDropoffPlace(): String
+  customPickupPlace(): String
+  customer(): Customer
+  customizedStartTime(): String
+  daysTillClosestDateOfTravel(): Int
+  dropOffPlace(): Location
+  dropoff(): Boolean
+  dropoffGoogleMapsUrl(): String
+  dropoffPlace(): PickupPlace
+  dropoffPlaceAsString(): String
+  dropoffQuestions(): None
+  endDateAndTime(): String
+  experience(): Experience
+  experienceTimezone(): String
+  expiryDate(): String
+  externalReference(): String
+  extraBookings(): None
+  financeNote(): String
+  generalNote(): String
+  hasPassed(): Boolean
+  id(): ID
+  isCancelled(): Boolean
+  isCombo(): Boolean
+  isCustomDropoff(): Boolean
+  isCustomDropoffAllowed(): Boolean
+  isCustomPickup(): Boolean
+  isCustomPickupAllowed(): Boolean
+  isDropoffAvailable(): Boolean
+  isExtraUpsellAvailable(): Boolean
+  isExtrasAvailable(): Boolean
+  isOfferApplied(): Boolean
+  isPickupAllotment(): Boolean
+  isPickupAvailable(): Boolean
+  isPickupSeatsAvailable(): Boolean
+  isRefundProtected(): Boolean
+  isWaiveCancellationFees(): Boolean
+  lastModifiedDate(): String
+  metadata(): None
+  modificationConfigCustomMessage(): String
+  modificationStatus(): ModificationStatus
+  operationNote(): String
+  passengers(): None
+  paymentStatus(): BookingPaymentStatus
+  pickup(): Boolean
+  pickupDateAndTime(): String
+  pickupGoogleMapsUrl(): String
+  pickupPlace(): PickupPlace
+  pickupPlaceAsString(): String
+  pickupQuestions(): None
+  pickupTimeAsString(): String
+  portalToken(): String
+  productInvoice(): ProductInvoice
+  rate(): ExperienceRate
+  reference(): String
+  remainingAmount(): Float
+  resources(): None
+  sellerInvoice(): SellerInvoice
+  startDateAndTime(): String
+  startTime(): ExperienceStartTime
+  startTimeToEnd(): String
+  tickets(): None
+  totalPassengerCount(): Int
+  totalSeatsOccupied(): Int
+  zonedEndDateAndTime(): String
+  zonedPickupDateAndTime(): String
+  zonedStartDateAndTime(): String
+
+ExperienceBookingCancelByCustomerInput:
+  cancelReason: String (input)
+  experienceBookingId: String (input)
+
+ExperienceBookingCancelByVendorInput:
+  applyCancellationFees: Boolean (input)
+  applyRefund: Boolean (input)
+  cancelReason: String (input)
+  experienceBookingId: String (input)
+  refundAmount: BigDecimal (input)
+  refundType: RefundType (input)
+
+ExperienceBookingCreateInput:
+  answers: AnswerDtoInput (input)
+  date: String (input)
+  dropoff: Boolean (input)
+  dropoffAnswers: AnswerDtoInput (input)
+  dropoffDescription: String (input)
+  dropoffPlaceId: ID (input)
+  experienceId: ID (input)
+  note: String (input)
+  passengers: PassengerBookingCreateInput (input)
+  pickup: Boolean (input)
+  pickupAnswers: AnswerDtoInput (input)
+  pickupDescription: String (input)
+  pickupPlaceId: ID (input)
+  rateId: ID (input)
+  startTime: String (input)
+  startTimeId: ID (input)
+
+ExperienceBookingDataInput:
+  answers: AnswerDtoInput (input)
+  bookingId: ID (input)
+  dropoffAnswers: AnswerDtoInput (input)
+  passengerBookingData: PassengerBookingDataInput (input)
+  pickupAnswers: AnswerDtoInput (input)
+
+ExperienceBookingRescheduleByCustomerInput:
+  date: Date (input)
+  experienceBookingId: String (input)
+  flexOption: String (input)
+  rateId: Long (input)
+  startTimeId: Long (input)
+
+ExperienceBookingTicketType:
+  experienceBookingId(): Long
+  productConfirmationCode(): String
+  productTitle(): String
+  ticketUrl(): String
+
+ExperienceBookingUpdateArrivalStatusInput:
+  arrivalStatus: ArrivalStatus (input)
+  experienceBookingId: String (input)
+
+ExperienceConnection:
+  edges(): ExperienceEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+ExperienceDepositType:
+  activityId(): Long
+  deposit(): BigDecimal
+
+ExperienceEdge:
+  cursor(): String
+  node(): Experience
+
+ExperienceExtraBooking:
+  bookedTitle(): String
+  description(): String
+  extraId(): Long
+  id(): Long
+  photo(): Image
+  pricedPerPerson(): Boolean
+  pricingCategoryBookedTitles(): String
+  pricingCategoryBookingIds(): Long
+  quantity(): Int
+
+ExperienceFilterInput:
+  activated: Boolean (input)
+  lastModifiedAfter: String (input)
+  searchTerm: String (input)
+  supplierId: String (input)
+  vendorRole: ProductVendorRole (input)
+
+ExperienceInput:
+  barcodeType: BarcodeType (input)
+  bookingCutoff: String (input)
+  bookingType: BookingTypeEnum (input)
+  briefDescription: String (input)
+  capacityType: CapacityType (input)
+  categories: ActivityCategory (input)
+  city: CityInput (input)
+  coverImage: ImageInput (input)
+  cutoffReference: String (input)
+  cutoffType: CutoffType (input)
+  description: String (input)
+  dropOffAllowsCustomLocation: Boolean (input)
+  dropOffPlaces: PickupPlaceInputInput (input)
+  dropOffService: Boolean (input)
+  duration: String (input)
+  exclusions: ActivityInclusionExclusionType (input)
+  exclusionsFreeText: String (input)
+  experienceType: ActivityType (input)
+  fixedPassExpiryDate: String (input)
+  howToGetThere: HowToGetThereType (input)
+  id: String (input)
+  images: ImageInput (input)
+  inclusions: ActivityInclusionExclusionType (input)
+  inclusionsFreeText: String (input)
+  itinerary: ItineraryPartInput (input)
+  keywords: String (input)
+  knowBeforeYouGoFreeText: String (input)
+  knowBeforeYouGoItems: ActivityKnowBeforeYouGoType (input)
+  meetingPlaces: PickupPlaceInputInput (input)
+  minAge: Int (input)
+  name: String (input)
+  passCapacity: Int (input)
+  passExpiry: PassExpiryType (input)
+  passValidForDays: Int (input)
+  passengerCategories: PassengerCategoryInput (input)
+  physicalDifficultyLevel: ActivityPhysicalDifficulty (input)
+  pickupAllowsCustomLocation: Boolean (input)
+  pickupCapacityLimited: Boolean (input)
+  pickupNotSelectedMessage: String (input)
+  pickupPlaces: PickupPlaceInputInput (input)
+  privateExperience: Boolean (input)
+  productCode: String (input)
+  rates: ExperienceRateInput (input)
+  showMessageIfPickupNotSelected: Boolean (input)
+  showPickupMinutesBeforeMessageOnTicket: Boolean (input)
+  standardMainContactQuestions: StandardQuestionInput (input)
+  standardPassengerQuestions: StandardQuestionInput (input)
+  themes: ActivityAttribute (input)
+  ticketMessage: String (input)
+  ticketPerParticipant: Boolean (input)
+  timeZone: String (input)
+  videos: VideoInput (input)
+  whatToBring: String (input)
+
+ExperienceQuestionAnswer:
+  answer(): String
+  answers(): String
+  dataFormat(): QuestionDataFormatEnum
+  dataPattern(): String
+  dataType(): QuestionDataTypeEnum
+  defaultValue(): String
+  help(): String
+  id(): String
+  label(): String
+  options(): CheckoutAttribute
+  placeholder(): String
+  questionCode(): String
+  required(): Boolean
+  selectMultiple(): Boolean
+
+ExperienceRate:
+  cancellationPolicy(): CancellationPolicy
+  description(): String
+  dropoffPricedPerPassenger(): Boolean
+  dropoffPricing(): AddonPricingType
+  dropoffSelection(): AddonSelectionType
+  extras(): Extra
+  id(): ID
+  maxPassengersPerBooking(): Int
+  minPassengersPerBooking(): Int
+  name(): String
+  passengerCategories(): PassengerCategory
+  pickupPricedPerPassenger(): Boolean
+  pickupPricing(): AddonPricingType
+  pickupSelection(): AddonSelectionType
+  pricedPerPassenger(): Boolean
+  rateCode(): String
+  startTimes(): ExperienceStartTime
+  tieredPricing(): Boolean
+  tiers(): RateTier
+
+ExperienceRateDeleteInput:
+  id: String (input)
+
+ExperienceRateDeletePayload:
+  deletedExperienceRateId(): String
+
+ExperienceRateInput:
+  cancellationPolicy: CancellationPolicyInput (input)
+  defaultRate: Boolean (input)
+  description: String (input)
+  dropOffPricedPerPassenger: Boolean (input)
+  dropOffPricing: AddonPricingType (input)
+  dropOffSelection: AddonSelectionType (input)
+  experienceId: String (input)
+  extras: ExtraInputInput (input)
+  id: String (input)
+  maxPassengersPerBooking: Int (input)
+  minPassengersPerBooking: Int (input)
+  name: String (input)
+  passengerCategoryIds: String (input)
+  pickupPricedPerPassenger: Boolean (input)
+  pickupPricing: AddonPricingType (input)
+  pickupSelection: AddonSelectionType (input)
+  pricedPerPassenger: Boolean (input)
+  rateCode: String (input)
+  startTimes: ExperienceStartTimeInput (input)
+  tieredPricing: Boolean (input)
+  tiers: RateTierInput (input)
+
+ExperienceSchedule:
+  days(): ExperienceScheduleDay
+
+ExperienceScheduleDay:
+  date(): String
+  events(): ExperienceScheduleEvent
+  times(): ExperienceScheduleTime
+
+ExperienceScheduleEvent:
+  bookings(): ExperienceBooking
+  experience(): Experience
+  pickupSeatsAvailable(): Int
+  seatsAvailable(): Int
+  status(): ExperienceAvailabilityStatus
+
+ExperienceScheduleTime:
+  events(): ExperienceScheduleEvent
+  time(): String
+
+ExperienceSortInput:
+  descending: Boolean (input)
+  orderBy: ExperienceSortField (input)
+
+ExperienceStartTime:
+  duration(): String
+  externalLabel(): String
+  hour(): Int
+  id(): ID
+  isoDuration(): String
+  label(): String
+  minute(): Int
+  ticketMessageIfPickup(): String
+  time(): String
+
+ExperienceStartTimeDeleteInput:
+  id: String (input)
+
+ExperienceStartTimeDeletePayload:
+  deletedExperienceStartTimeId(): String
+
+ExperienceStartTimeInput:
+  duration: String (input)
+  experienceId: String (input)
+  hour: Int (input)
+  id: String (input)
+  label: String (input)
+  minute: Int (input)
+  ticketMessageIfPickup: String (input)
+
+Extra:
+  bookableMaxLimit(): ExtraMaxEnum
+  configId(): Long
+  description(): String
+  fixedMaxQuantity(): Int
+  id(): ID
+  name(): String
+  pricedPerPassengerCategory(): Boolean
+  pricing(): AddonPricingType
+  productCode(): String
+  selection(): ExtraSelectionType
+
+ExtraBooking:
+  extra(): Extra
+  id(): ID
+  quantity(): Int
+  questions(): ExperienceQuestionAnswer
+
+ExtraBookingCreateInput:
+  answers: AnswerDtoInput (input)
+  extraId: ID (input)
+  quantity: Int (input)
+
+ExtraBookingDataInput:
+  answers: AnswerDtoInput (input)
+  bookingId: ID (input)
+
+ExtraInputInput:
+  bookableMaxLimit: ExtraMaxEnum (input)
+  description: String (input)
+  fixedMaxQuantity: Int (input)
+  id: String (input)
+  name: String (input)
+  pricedPerPassengerCategory: Boolean (input)
+  pricing: AddonPricingType (input)
+  productCode: String (input)
+  selection: ExtraSelectionType (input)
+
+ExtraPricingCategoryPriceType:
+  category(): PassengerCategory
+  prices(): BookableExtraPriceType
+
+ExtraQuestionsInputInput:
+  answers: AnswerInputInput (input)
+  bookingId: Long (input)
+  extraId: Long (input)
+
+ExtraQuestionsType:
+  bookingId(): Long
+  extraId(): Long
+  extraTitle(): String
+  questions(): None
+
+ExtranetUserAppSettingsType:
+  departureFilterResource(): Resource
+  departureFilterResourceType(): ResourceType
+  departureOnlyWithBookings(): Boolean
+  departureUseDefaultFilter(): Boolean
+  offlineCachingEnabled(): Boolean
+  showOnlyMyPickups(): Boolean
+  ticketScanningArrivedStatusOnScan(): Boolean
+  ticketScanningViewDetailsOnScan(): Boolean
+  viewAppAsResource(): Boolean
+
+ExtranetUserType:
+  appSettings(): ExtranetUserAppSettingsType
+  createdDate(): String
+  email(): String
+  emailVerified(): Boolean
+  firstName(): String
+  id(): ID
+  lastLoginDate(): String
+  lastName(): String
+  permissions(): UserPermission
+  phoneNumber(): String
+  role(): Role
+  timeZone(): String
+  title(): String
+  userLanguage(): String
+  userViewType(): ExtranetUserAppViewType
+  vendor(): Vendor
+
+Fee:
+  amount(): Float
+  name(): FeeTitle
+
+GeoPoint:
+  latitude(): Float
+  longitude(): Float
+
+GeoPointInput:
+  latitude: Float (input)
+  longitude: Float (input)
+
+GiftCard:
+  amount(): Float
+  code(): String
+  currency(): String
+  experience(): Experience
+  expiryDate(): LocalDateTime
+  id(): ID
+  remainingAmount(): Float
+  usageCount(): Int
+  vendor(): Vendor
+
+GiftCardBooking:
+  bookingStatus(): BookingStatus
+  giftCardOptionBookings(): None
+  id(): ID
+
+GiftCardOptionBooking:
+  bookedTitle(): String
+  giftCard(): GiftCard
+  id(): ID
+
+Image:
+  alternateText(): String
+  caption(): String
+  height(): Int
+  id(): ID
+  originalUrl(): String
+  previewUrl(): String
+  thumbnailUrl(): String
+  width(): Int
+
+ImageInput:
+  alternateText: String (input)
+  caption: String (input)
+  height: Int (input)
+  id: String (input)
+  originalUrl: String (input)
+  width: Int (input)
+
+ItineraryPart:
+  address(): Address
+  briefDescription(): String
+  coverImage(): Image
+  day(): Int
+  description(): String
+  id(): ID
+  images(): Image
+  index(): Int
+  name(): String
+
+ItineraryPartInput:
+  address: AddressInput (input)
+  briefDescription: String (input)
+  coverImage: ImageInput (input)
+  day: Int (input)
+  description: String (input)
+  id: String (input)
+  images: ImageInput (input)
+  index: Int (input)
+  name: String (input)
+
+LineItem:
+  currency(): String
+  customDiscount(): Float
+  discount(): Float
+  discountAmount(): Float
+  discountedTotalPrice(): Float
+  discountedUnitPrice(): Float
+  id(): ID
+  name(): String
+  people(): Int
+  pricingCategoryId(): Long
+  quantity(): Int
+  ticketCategory(): TicketCategory
+  totalExcludedTax(): Float
+  totalIncludedTax(): Float
+  totalPrice(): Float
+  totalTax(): Float
+  type(): ProductLineItemType
+  unitPrice(): Float
+
+Location:
+  address(): Address
+  id(): ID
+  name(): String
+  type(): LocationType
+
+LocationInput:
+  address: AddressInput (input)
+  name: String (input)
+  type: LocationType (input)
+
+Money:
+  amount(): Float
+  currency(): String
+
+Mutation:
+  makePayment(): ExperienceBooking
+  checkoutExperienceBookingsRemove(): Checkout
+  experienceStartTimeDelete(): ExperienceStartTimeDeletePayload
+  experienceStartTimeUpdate(): ExperienceStartTime
+  answerBookingQuestions(): BookingAnswerErrorType
+  checkoutCustomerUpdate(): Checkout
+  experienceActivate(): Experience
+  checkoutComplete(): Checkout
+  checkoutPromoCodeApply(): Checkout
+  checkoutExperienceBookingsAdd(): Checkout
+  checkoutCreate(): Checkout
+  customerUpdate(): Customer
+  experienceCreate(): Experience
+  terminalSendInvoice(): Boolean
+  createPaymentIntentForActivity(): CreatePaymentIntentForActivityResponse
+  checkoutGiftCardAppend(): Checkout
+  experienceRateCreate(): ExperienceRate
+  checkoutAttributesUpdate(): Checkout
+  checkoutReserve(): Checkout
+  addNoteToExperienceBooking(): BookingNote
+  experienceBookingUpdateArrivalStatus(): ExperienceBooking
+  experienceRateUpdate(): ExperienceRate
+  experienceUpdate(): Experience
+  experienceBookingCancelByVendor(): ExperienceBooking
+  bookingInfoUpdate(): Booking
+  checkoutGiftCardRemove(): Checkout
+  experienceRateDelete(): ExperienceRateDeletePayload
+  checkoutPromoCodeRemove(): Checkout
+  experienceStartTimeCreate(): ExperienceStartTime
+  experienceBookingCancelByCustomer(): ExperienceBooking
+  addExtrasToExperienceBooking(): ExperienceBooking
+  updateAppSettings(): ExtranetUserAppSettingsType
+  experienceDeactivate(): Experience
+  checkoutExperienceBookingAnswersUpdate(): Checkout
+  experienceBookingRescheduleByCustomer(): ExperienceBooking
+  terminalReaderPresenceChannelAuthentication(): PusherAuthResponse
+  addGiftCardToBooking(): Booking
+  initiatePayment(): PaymentInitiationType
+
+NameValuePair:
+  name(): String
+  value(): ObjectScalar
+
+Node:
+  id(): ID
+
+PageInfo:
+  endCursor(): String
+  hasNextPage(): Boolean
+  hasPreviousPage(): Boolean
+  startCursor(): String
+
+PassengerBooking:
+  bookedTitle(): String
+  bookingQuestions(): ExperienceQuestionAnswer
+  category(): PassengerCategory
+  externalReference(): String
+  extras(): ExtraBooking
+  id(): ID
+  passengerInfo(): Customer
+  passengerQuestions(): ExperienceQuestionAnswer
+
+PassengerBookingCreateInput:
+  answers: AnswerDtoInput (input)
+  extras: ExtraBookingCreateInput (input)
+  passengerCategoryId: ID (input)
+  passengerCategoryType: TicketCategory (input)
+  passengerDetails: AnswerDtoInput (input)
+
+PassengerBookingDataInput:
+  answers: AnswerDtoInput (input)
+  bookingId: ID (input)
+  extraBookingData: ExtraBookingDataInput (input)
+  passenger: CustomerInput (input)
+
+PassengerCategory:
+  ageQualified(): Boolean
+  id(): ID
+  maxAge(): Int
+  minAge(): Int
+  name(): String
+  occupancyPerPassenger(): Int
+  type(): TicketCategory
+
+PassengerCategoryConnection:
+  edges(): PassengerCategoryEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+PassengerCategoryEdge:
+  cursor(): String
+  node(): PassengerCategory
+
+PassengerCategoryInput:
+  ageQualified: Boolean (input)
+  id: String (input)
+  maxAge: Int (input)
+  minAge: Int (input)
+  name: String (input)
+  occupancyPerPassenger: Int (input)
+  type: TicketCategory (input)
+
+PassengerCountInput:
+  passengerCategoryId: ID (input)
+  passengerCategoryType: TicketCategory (input)
+  passengerCount: Int (input)
+
+PassengerQuestionsInputInput:
+  answers: AnswerInputInput (input)
+  bookingId: Long (input)
+  extras: ExtraQuestionsInputInput (input)
+  passengerDetails: AnswerInputInput (input)
+  pricingCategoryId: Long (input)
+
+PassengerQuestionsType:
+  bookingId(): Long
+  extras(): None
+  passengerDetails(): None
+  pricingCategoryId(): Long
+  pricingCategoryTitle(): String
+  pricingCategoryType(): String
+  questions(): None
+
+PaymentInitiationType:
+  booking(): Booking
+  paymentIntent(): PaymentIntent
+
+PaymentIntent:
+  amount(): BigDecimal
+  currency(): String
+  paymentIntentId(): String
+  paymentIntentUrl(): String
+  paymentProviders(): None
+
+PickupLocation:
+  experienceBookings(): None
+  pickupPlace(): PickupPlace
+  totalBookings(): Int
+  totalPassengers(): Int
+
+PickupPlace:
+  id(): ID
+  location(): Location
+  minutesBeforeStartTime(): Int
+  timeWindowInMinutes(): Int
+
+PickupPlaceInputInput:
+  id: String (input)
+  location: LocationInput (input)
+  minutesBeforeStartTime: Int (input)
+  timeWindowInMinutes: Int (input)
+
+PortalAddons:
+  dropOffPlaceOptions(): RideOptions
+  pickupPlaceOptions(): RideOptions
+  pricedPerBooking(): None
+  pricedPerPerson(): None
+
+PricePerPassenger:
+  amount(): Float
+  passengerCategory(): PassengerCategory
+
+PricedPerBookingExtra:
+  extra(): BookableExtraType
+  prices(): BookableExtraPriceType
+
+PricedPerPersonExtra:
+  bookedPricingCategoryBookings(): None
+  extra(): BookableExtraType
+  participants(): None
+  pricingCategoryExtraPrices(): None
+
+ProductInvoice:
+  currency(): String
+  customLineItems(): None
+  fees(): None
+  id(): ID
+  issueDate(): String
+  lineItems(): None
+  name(): String
+  totalDueAmount(): Float
+  totalInvoiceAmount(): Float
+
+ProductList:
+  activated(): Boolean
+  children(): ProductList
+  coverImage(): Image
+  description(): String
+  experiences(): Experience
+  id(): ID
+  name(): String
+
+ProductListConnection:
+  edges(): ProductListEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+ProductListEdge:
+  cursor(): String
+  node(): ProductList
+
+PromoCode:
+  active(): Boolean
+  code(): String
+  createdDate(): String
+  description(): String
+  discountType(): PromoCodeTypeEnum
+  fixedAmountDiscount(): Float
+  fixedAmountDiscountCurrency(): String
+  id(): ID
+  percentageDiscount(): Float
+  travelValidFrom(): String
+  travelValidTo(): String
+  validFrom(): String
+  validTo(): String
+
+PromoCodeUsage:
+  discountAmount(): Float
+  discountCurrency(): String
+  id(): ID
+  promoCode(): PromoCode
+
+PusherAuthResponse:
+  auth(): String
+  channelData(): String
+
+Query:
+  giftCardOptionBooking(): GiftCardOptionBooking
+  resourceTypes(): ResourceType
+  booking(): Booking
+  getDepartureById(): Departure
+  getBookingQuestions(): BookingQuestionsType
+  experienceBooking(): ExperienceBooking
+  experience(): Experience
+  productLists(): ProductListConnection
+  vendorUser(): VendorUser
+  scanTicketBarcode(): ExperienceBooking
+  passengerCategories(): PassengerCategoryConnection
+  bookingChannels(): BookingChannelConnection
+  extranetUser(): ExtranetUserType
+  vendor(): Vendor
+  customers(): CustomerConnection
+  passengerCategory(): PassengerCategory
+  checkout(): Checkout
+  experienceAvailability(): AvailableDate
+  vendorUsers(): VendorUserConnection
+  experienceBookingExtras(): PortalAddons
+  restApiCredentials(): RestApiCredentials
+  getTerminalConnectionToken(): TerminalConnectionTokenDto
+  upsellProducts(): ProductList
+  resources(): Resource
+  cancellationPolicies(): CancellationPolicyConnection
+  experienceBookingByConfirmationCode(): ExperienceBooking
+  departures(): DepartureDay
+  experiences(): ExperienceConnection
+  experienceSchedule(): ExperienceSchedule
+  getAvailabilitiesForRescheduling(): ActivityCalendarAvailabilityResponseType
+  getTerminalConfig(): TerminalConfigResponse
+  pickups(): dailyPickup
+  bookings(): BookingConnection
+  user(): User
+  productList(): ProductList
+  cancellationPolicy(): CancellationPolicy
+  customer(): Customer
+  node(): Node
+
+QuestionSpecificationType:
+  answerOptions(): None
+  answers(): String
+  dataFormat(): QuestionDataFormatEnum
+  dataType(): QuestionDataTypeEnum
+  defaultValue(): String
+  flags(): String
+  help(): String
+  label(): String
+  originalQuestion(): String
+  pattern(): String
+  placeholder(): String
+  questionCode(): String
+  questionId(): String
+  required(): Boolean
+  requiredBeforeDeparture(): Boolean
+  selectFromOptions(): Boolean
+  selectMultiple(): Boolean
+
+RateTier:
+  id(): ID
+  maxPassengers(): Int
+  minPassengers(): Int
+  passengerCategory(): PassengerCategory
+
+RateTierInput:
+  id: String (input)
+  maxPassengers: Int (input)
+  minPassengers: Int (input)
+  pricingCategory: PassengerCategoryInput (input)
+
+Resource:
+  extranetUser(): ExtranetUserType
+  id(): Long
+  resourceTypes(): ResourceType
+  title(): String
+  vendor(): Vendor
+
+ResourceReduced:
+  id(): Long
+  resourceTypes(): ResourceType
+  title(): String
+
+ResourceType:
+  id(): Long
+  title(): String
+
+RestApiCredentials:
+  accessKey(): String
+  secretKey(): String
+
+RideOptions:
+  customAllowed(): Boolean
+  discount(): Money
+  hasDiscount(): Boolean
+  originalPrice(): String
+  originalPriceAsMoney(): Money
+  pickupAllotment(): Boolean
+  pickupAvailability(): Int
+  places(): None
+  pricedPerPerson(): Boolean
+  pricingCategoryPrices(): None
+  pricingType(): AddonPricingType
+  selectionType(): AddonSelectionType
+  totalPrice(): String
+  totalPriceMoney(): Money
+
+ScheduleFilterInput:
+  bookedOnly: Boolean (input)
+  dateTimeFrom: String (input)
+  dateTimeTo: String (input)
+  experienceIds: None (input)
+  vendorId: String (input)
+
+SellerInvoice:
+  commissionAmount(): Float
+  currency(): String
+  customLineItems(): None
+  discountAmount(): Float
+  discountedTotalPrice(): Float
+  id(): ID
+  issueDate(): String
+  issuer(): Vendor
+  lineItems(): None
+  recipient(): Vendor
+  totalDue(): Float
+
+SellerLineItem:
+  currency(): String
+  discountedTotalPrice(): Float
+  discountedUnitPrice(): Float
+  id(): ID
+  name(): String
+  quantity(): Int
+  totalExcludedTax(): Float
+  totalIncludedTax(): Float
+  totalPrice(): Float
+  totalTax(): Float
+  type(): ProductLineItemType
+  unitPrice(): Float
+
+StandardQuestion:
+  field(): CustomerField
+  id(): ID
+  required(): Boolean
+
+StandardQuestionInput:
+  field: CustomerField (input)
+  id: String (input)
+  required: Boolean (input)
+
+StartTime:
+  externalLabel(): String
+  hour(): Int
+  id(): Long
+  label(): String
+  minutes(): Int
+  pickupHour(): Int
+  pickupMinutes(): Int
+  time(): String
+
+TerminalConfigResponse:
+  connectionToken(): String
+  contractId(): Long
+  country(): String
+  currency(): String
+  isSupported(): Boolean
+
+TerminalConnectionTokenDto:
+  connectionToken(): String
+
+TripadvisorReview:
+  description(): String
+  locationId(): String
+  name(): String
+  numReviews(): Int
+  ranking(): String
+  rating(): Float
+  url(): String
+
+User:
+  createdDate(): String
+  email(): String
+  emailVerified(): Boolean
+  firstName(): String
+  id(): ID
+  lastLoginDate(): String
+  lastName(): String
+  permissions(): UserPermission
+  phoneNumber(): String
+  role(): Role
+  timeZone(): String
+  title(): String
+  userLanguage(): String
+
+UserPermission:
+  capability(): NamedUserPermissionCapability
+  type(): NamedUserPermissionType
+
+Vendor:
+  address(): Address
+  bookingPrefix(): String
+  company(): Company
+  contact(): Contact
+  currency(): String
+  description(): String
+  domain(): String
+  id(): ID
+  language(): Locale
+  logo(): Image
+  name(): String
+  pricing(): VendorPricePlan
+  timeZone(): String
+  websiteUrl(): String
+
+VendorPricePlan:
+  chargeType(): AppChargeType
+  pricePlan(): AppPricePlan
+
+VendorUser:
+  createdDate(): String
+  email(): String
+  emailVerified(): Boolean
+  firstName(): String
+  id(): ID
+  lastLoginDate(): String
+  lastName(): String
+  permissions(): UserPermission
+  phoneNumber(): String
+  role(): Role
+  timeZone(): String
+  title(): String
+  userLanguage(): String
+
+VendorUserConnection:
+  edges(): VendorUserEdge
+  pageInfo(): PageInfo
+  totalCount(): Long
+
+VendorUserEdge:
+  cursor(): String
+  node(): VendorUser
+
+VendorUserFilterInput:
+  searchTerm: String (input)
+
+VendorUserSortInput:
+  descending: Boolean (input)
+  orderBy: VendorUserSortField (input)
+
+Video:
+  embedCode(): String
+  id(): ID
+  name(): String
+  previewUrl(): String
+  provider(): String
+  sourceUrl(): String
+  thumbnailUrl(): String
+
+VideoInput:
+  embedCode: String (input)
+  id: String (input)
+  name: String (input)
+  previewUrl: String (input)
+  provider: String (input)
+  sourceUrl: String (input)
+  thumbnailUrl: String (input)
+
+dailyPickup:
+  date(): String
+  pickupTimeSlots(): None
+
+mapEntry_Long_Int_input:
+  key: Long (input)
+  value: Int (input)
+
+mapEntry_Long_list_Long_input:
+  key: Long (input)
+  value: Long (input)
+
+mapEntry_String_ObjectScalar:
+  key(): String
+  value(): ObjectScalar
+
+pickupTimeSlot:
+  pickupLocations(): None
+  pickupTime(): String
+  totalCheckedIn(): Int
+  totalPassengers(): Int
+

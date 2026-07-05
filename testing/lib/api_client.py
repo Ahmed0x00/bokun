@@ -6,6 +6,7 @@ import json
 import time
 import hashlib
 import hmac
+import base64
 from datetime import datetime
 from typing import Optional, Dict, Any, List
 from pathlib import Path
@@ -40,11 +41,21 @@ class BokunClient:
             time.sleep(1.0 / RATE_LIMIT - elapsed)
         self._last_request_time = time.time()
 
-    def _get_auth_headers(self) -> Dict[str, str]:
-        """Return auth headers."""
+    def _get_auth_headers(self, method: str, path: str) -> Dict[str, str]:
+        """Return auth headers with HMAC-SHA1 signature."""
+        date_str = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        # Signature = HMAC-SHA1(secretKey, date + accessKey + method + path)
+        message = f"{date_str}{self.access_key}{method.upper()}{path}"
+        signature = hmac.new(
+            self.secret_key.encode(),
+            message.encode(),
+            hashlib.sha1
+        ).digest()
+        sig_b64 = base64.b64encode(signature).decode()
         return {
-            "access-key": self.access_key,
-            "secret-key": self.secret_key,
+            "X-Bokun-Date": date_str,
+            "X-Bokun-AccessKey": self.access_key,
+            "X-Bokun-Signature": sig_b64,
         }
 
     def _log_request(self, method: str, url: str, status: int, response_size: int, duration: float):
@@ -80,7 +91,7 @@ class BokunClient:
         url = f"{self.base_url}{path}"
         req_headers = {**DEFAULT_HEADERS}
         if use_auth:
-            req_headers.update(self._get_auth_headers())
+            req_headers.update(self._get_auth_headers(method, path))
         if headers:
             req_headers.update(headers)
 
@@ -172,10 +183,24 @@ class BokunClient:
         return self.request("POST", path, use_auth=False, **kwargs)
 
     def get_wrong_auth(self, path: str, **kwargs) -> httpx.Response:
-        """Request with wrong/dummy auth headers."""
+        """Request with wrong/dummy auth headers (HMAC signed with wrong keys)."""
+        date_str = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+        wrong_access = "wrong_key_123456789012345678901234"
+        wrong_secret = "wrong_secret_678901234567890123456789"
+        message = f"{date_str}{wrong_access}GET{path}"
+        signature = hmac.new(
+            wrong_secret.encode(),
+            message.encode(),
+            hashlib.sha1
+        ).digest()
+        sig_b64 = base64.b64encode(signature).decode()
         return self.request(
             "GET", path,
-            headers={"access-key": "wrong_key_12345", "secret-key": "wrong_secret_67890"},
+            headers={
+                "X-Bokun-Date": date_str,
+                "X-Bokun-AccessKey": wrong_access,
+                "X-Bokun-Signature": sig_b64,
+            },
             **kwargs
         )
 

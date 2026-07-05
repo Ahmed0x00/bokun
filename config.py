@@ -4,10 +4,55 @@ Target: bokundemo.com / bokuntest.com (TripAdvisor Bug Bounty)
 """
 
 # ============================================================
-# API Keys (replace with your actual keys)
+# API Keys - Multi-Privilege Testing
 # ============================================================
-ACCESS_KEY = "74fb5f0a8d1b426e97accfad874bebc4"  # Your Bokun API access key
-SECRET_KEY = "d2662b1d06d340ffaea7a51d139a72c5"  # Your Bokun API secret key
+
+# ADMIN keys (full access - for reference)
+ADMIN_ACCESS_KEY = "9fcba1384d7d4550a4d7f46ee12500a4"
+ADMIN_SECRET_KEY = "5b8da0591c964e639e4bbd0f243c1e5a"
+
+# VENDOR keys (create via extranet -> settings -> connections -> api)
+# These have vendor-level access, not admin
+VENDOR_ACCESS_KEY = ""  # Fill with vendor API key
+VENDOR_SECRET_KEY = ""  # Fill with vendor API secret
+
+# BOOKING_AGENT keys (create via extranet -> settings -> user management)
+# These have limited agent-level access
+AGENT_ACCESS_KEY = ""   # Fill with agent API key
+AGENT_SECRET_KEY = ""   # Fill with agent API secret
+
+# READONLY keys (create via extranet -> settings -> connections -> api)
+# These should have read-only access
+READONLY_ACCESS_KEY = ""  # Fill with readonly API key
+READONLY_SECRET_KEY = ""  # Fill with readonly API secret
+
+# Default to admin keys for backward compatibility
+ACCESS_KEY = ADMIN_ACCESS_KEY
+SECRET_KEY = ADMIN_SECRET_KEY
+
+# Privilege levels for testing
+PRIVILEGE_LEVELS = {
+    "admin": {
+        "access_key": ADMIN_ACCESS_KEY,
+        "secret_key": ADMIN_SECRET_KEY,
+        "description": "Full admin access",
+    },
+    "vendor": {
+        "access_key": VENDOR_ACCESS_KEY,
+        "secret_key": VENDOR_SECRET_KEY,
+        "description": "Vendor-level access",
+    },
+    "agent": {
+        "access_key": AGENT_ACCESS_KEY,
+        "secret_key": AGENT_SECRET_KEY,
+        "description": "Booking agent access",
+    },
+    "readonly": {
+        "access_key": READONLY_ACCESS_KEY,
+        "secret_key": READONLY_SECRET_KEY,
+        "description": "Read-only access",
+    },
+}
 
 # ============================================================
 # Base URLs

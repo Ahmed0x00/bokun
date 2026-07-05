@@ -1,0 +1,943 @@
+{
+    "data": {
+        "__schema": {
+            "queryType": {
+                "fields": [
+                    {
+                        "name": "giftCardOptionBooking",
+                        "description": "Get one specific gift card option booking.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "resourceTypes",
+                        "description": "List of all resource types belonging to the vendor.",
+                        "args": []
+                    },
+                    {
+                        "name": "booking",
+                        "description": "Get one specific booking.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getDepartureById",
+                        "description": "Get a single departure by departure id",
+                        "args": [
+                            {
+                                "name": "departureId",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getBookingQuestions",
+                        "description": "Get booking questions for a booking.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceBooking",
+                        "description": "Get one specific experience booking.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experience",
+                        "description": "Get one specific experience product.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "productLists",
+                        "description": "Get a list of product lists owned by the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "last",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "before",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "vendorUser",
+                        "description": "Get one specific vendor user.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "scanTicketBarcode",
+                        "description": "Get experience booking from barcode/confirmation code.",
+                        "args": [
+                            {
+                                "name": "confirmationCode",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "passengerCategories",
+                        "description": "Get a list of passenger categories owned by the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "last",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "before",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "bookingChannels",
+                        "description": "Get booking channels for the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "last",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "before",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "vendor",
+                        "description": "Get details for the vendor that installed the app.",
+                        "args": []
+                    },
+                    {
+                        "name": "extranetUser",
+                        "description": "Get extranet user",
+                        "args": []
+                    },
+                    {
+                        "name": "passengerCategory",
+                        "description": "Get one passenger category.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "customers",
+                        "description": "Get a list of customers accessible by the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "filter",
+                                "type": {
+                                    "name": "CustomerFilterInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "last",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "before",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "sort",
+                                "type": {
+                                    "name": "CustomerSortInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkout",
+                        "description": "Get details about an existing checkout.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "vendorUsers",
+                        "description": "Get a list of user accounts owned by the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "filter",
+                                "type": {
+                                    "name": "VendorUserFilterInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "last",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "before",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "sort",
+                                "type": {
+                                    "name": "VendorUserSortInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceAvailability",
+                        "description": "Get available start times for a given date range and passengers.",
+                        "args": [
+                            {
+                                "name": "experienceId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "includeClosedOut",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "useEarlyBookingLimitFilter",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "passengerCategories",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": null,
+                                        "kind": "LIST"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "skipPriceLookup",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "includeSoldOut",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "dateTo",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "currency",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "dateFrom",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "useCutoffFilter",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceBookingExtras",
+                        "description": "Get extras available for an experience booking.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "restApiCredentials",
+                        "description": "Credentials for the old REST based API. Only available if the installation has the LEGACY_API permission.",
+                        "args": []
+                    },
+                    {
+                        "name": "getTerminalConnectionToken",
+                        "description": "The configuration for the Terminal Stripe integration.",
+                        "args": [
+                            {
+                                "name": "contractId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "upsellProducts",
+                        "description": "Get product list for upselling that is associated with a booking.",
+                        "args": [
+                            {
+                                "name": "bookingHash",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "resources",
+                        "description": "List of all resources belonging to the vendor.",
+                        "args": [
+                            {
+                                "name": "type",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "cancellationPolicies",
+                        "description": "Get a list of cancellation policies owned by the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "last",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "before",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceBookingByConfirmationCode",
+                        "description": "Get one specific experience booking.",
+                        "args": [
+                            {
+                                "name": "confirmationCode",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experiences",
+                        "description": "Get a list of experiences operated by the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "filter",
+                                "type": {
+                                    "name": "ExperienceFilterInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "last",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "before",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "sort",
+                                "type": {
+                                    "name": "ExperienceSortInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "departures",
+                        "description": "List of all departures for the date, organized into time slots.",
+                        "args": [
+                            {
+                                "name": "date",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "hasBookings",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Boolean",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "resourceTypeIds",
+                                "type": {
+                                    "name": null,
+                                    "kind": "LIST",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "resourceIds",
+                                "type": {
+                                    "name": null,
+                                    "kind": "LIST",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceSchedule",
+                        "description": "Get available start times for a given date range and passengers.",
+                        "args": [
+                            {
+                                "name": "filter",
+                                "type": {
+                                    "name": "ScheduleFilterInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getAvailabilitiesForRescheduling",
+                        "description": "Get availabilities for rescheduling that is associated with a booking.",
+                        "args": [
+                            {
+                                "name": "month",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "year",
+                                "type": {
+                                    "name": "Int",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "bookingHash",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "getTerminalConfig",
+                        "description": "The configuration for the Terminal Stripe integration.",
+                        "args": []
+                    },
+                    {
+                        "name": "pickups",
+                        "description": "List of days including all pickups within that day",
+                        "args": [
+                            {
+                                "name": "date",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "resourceIds",
+                                "type": {
+                                    "name": null,
+                                    "kind": "LIST",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "bookings",
+                        "description": "Get a list of bookings owned by the vendor that installed the app.",
+                        "args": [
+                            {
+                                "name": "filter",
+                                "type": {
+                                    "name": "BookingFilterInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "after",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "sort",
+                                "type": {
+                                    "name": "BookingSortInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "first",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Int",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "user",
+                        "description": "Get one specific user linked to the installation or the list of vendors that has installed the app",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "productList",
+                        "description": "Get one specific product list.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "cancellationPolicy",
+                        "description": "Get one cancellation policy.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "customer",
+                        "description": "Get one specific customer.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "node",
+                        "description": "Fetches an object given its ID",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

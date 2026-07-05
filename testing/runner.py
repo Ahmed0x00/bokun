@@ -22,14 +22,26 @@ from testing.lib.findings import FindingReporter
 # Scenario registry
 # ============================================================
 SCENARIO_MODULES = [
+    # Existing scenarios
     "scenarios.idor_activity",
     "scenarios.idor_accommodation",
     "scenarios.idor_booking",
+    "scenarios.idor_booking_mutation",
     "scenarios.idor_cart",
+    "scenarios.idor_checkout",
     "scenarios.auth_bypass",
+    "scenarios.auth_bypass_write",
     "scenarios.session_fixation",
     "scenarios.cart_manipulation",
+    "scenarios.business_logic",
     "scenarios.injection",
+    "scenarios.injection_write_payloads",
+    "scenarios.race_condition",
+    # New privilege escalation scenarios
+    "scenarios.privilege_escalation",
+    "scenarios.rbac_bypass",
+    "scenarios.agent_idor",
+    "scenarios.api_key_discovery",
 ]
 
 

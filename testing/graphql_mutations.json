@@ -1,0 +1,954 @@
+{
+    "data": {
+        "__schema": {
+            "mutationType": {
+                "fields": [
+                    {
+                        "name": "checkoutExperienceBookingsRemove",
+                        "description": "Removes experience bookings from an existing, incomplete checkout.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "experienceIds",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": null,
+                                        "kind": "LIST"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "makePayment",
+                        "description": "Add payment to activity booking",
+                        "args": [
+                            {
+                                "name": "activityBookingId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "paymentAmount",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "BigDecimal",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "paymentType",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceStartTimeDelete",
+                        "description": "Delete an experience start time",
+                        "args": [
+                            {
+                                "name": "experienceStartTimeDeleteInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceStartTimeDeleteInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceStartTimeUpdate",
+                        "description": "Update an experience start time",
+                        "args": [
+                            {
+                                "name": "experienceStartTimeInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceStartTimeInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "answerBookingQuestions",
+                        "description": "Answer booking questions for this booking",
+                        "args": [
+                            {
+                                "name": "input",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "AnswerBookingQuestionsInputInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutCustomerUpdate",
+                        "description": "Updates the customer data on an existing checkout.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "customer",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "CustomerInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceActivate",
+                        "description": "Activate an experience",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutComplete",
+                        "description": "Completes a checkout.",
+                        "args": [
+                            {
+                                "name": "input",
+                                "type": {
+                                    "name": "CheckoutCompleteInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutPromoCodeApply",
+                        "description": "Applies a discount to an existing checkout using a promo code.",
+                        "args": [
+                            {
+                                "name": "promoCode",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutExperienceBookingsAdd",
+                        "description": "Adds a list of line items to an existing, incomplete checkout.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "experiences",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": null,
+                                        "kind": "LIST"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutCreate",
+                        "description": "Creates a new checkout",
+                        "args": [
+                            {
+                                "name": "input",
+                                "type": {
+                                    "name": "CheckoutCreateInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "customerUpdate",
+                        "description": "Updates a customer.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "customerInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "CustomerInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceCreate",
+                        "description": "Create an experience",
+                        "args": [
+                            {
+                                "name": "experienceInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "terminalSendInvoice",
+                        "description": "Send the invoice via email after successful payment.",
+                        "args": [
+                            {
+                                "name": "activityBookingId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "email",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "createPaymentIntentForActivity",
+                        "description": "Create a payment intent for an activity booking to be sent back via socket and processed on the device",
+                        "args": [
+                            {
+                                "name": "activityId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "amount",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "BigDecimal",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "contractId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "currency",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "terminalId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutGiftCardAppend",
+                        "description": "Appends a gift card to an existing checkout.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "giftCardCode",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceRateCreate",
+                        "description": "Create an experience rate",
+                        "args": [
+                            {
+                                "name": "experienceRateInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceRateInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutAttributesUpdate",
+                        "description": "Updates the attributes of a checkout.",
+                        "args": [
+                            {
+                                "name": "input",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "CheckoutAttributesUpdateInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutReserve",
+                        "description": "Reserves availability of all products in this checkout. This is normally done before you attempt to take payment. After reserving successfully, then you cannot modify the checkout. You can finalize the checkout by calling checkoutComplete.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "addNoteToExperienceBooking",
+                        "description": "Add note to an activity booking",
+                        "args": [
+                            {
+                                "name": "text",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "Long",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceBookingUpdateArrivalStatus",
+                        "description": "Updates an experience booking arrival status, the updated status is ",
+                        "args": [
+                            {
+                                "name": "experienceBookingUpdateArrivalStatusInput",
+                                "type": {
+                                    "name": "ExperienceBookingUpdateArrivalStatusInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceRateUpdate",
+                        "description": "Update an experience rate",
+                        "args": [
+                            {
+                                "name": "experienceRateInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceRateInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceUpdate",
+                        "description": "Update an experience",
+                        "args": [
+                            {
+                                "name": "experienceInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceBookingCancelByVendor",
+                        "description": "Cancels an experience booking as a vendor",
+                        "args": [
+                            {
+                                "name": "experienceBookingCancelByVendorInput",
+                                "type": {
+                                    "name": "ExperienceBookingCancelByVendorInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "bookingInfoUpdate",
+                        "description": "Update booking info",
+                        "args": [
+                            {
+                                "name": "bookingUpdateData",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "BookingUpdateDataInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutGiftCardRemove",
+                        "description": "Removes an applied gift card from the checkout.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutPromoCodeRemove",
+                        "description": "Removes the applied discount from an existing checkout.",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceRateDelete",
+                        "description": "Delete an experience rate",
+                        "args": [
+                            {
+                                "name": "experienceRateDeleteInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceRateDeleteInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceBookingCancelByCustomer",
+                        "description": "Cancels an experience booking as a customer",
+                        "args": [
+                            {
+                                "name": "experienceBookingCancelByCustomerInput",
+                                "type": {
+                                    "name": "ExperienceBookingCancelByCustomerInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceStartTimeCreate",
+                        "description": "Create an experience start time",
+                        "args": [
+                            {
+                                "name": "experienceStartTimeInput",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceStartTimeInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "addExtrasToExperienceBooking",
+                        "description": "Adds extras and/or pickup/dropoff to an experience booking",
+                        "args": [
+                            {
+                                "name": "input",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "AddExtrasToExperienceBookingInputInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "updateAppSettings",
+                        "description": "Update AppSettings for the authenticated user",
+                        "args": [
+                            {
+                                "name": "viewAppAsResource",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "departureOnlyWithBookings",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "departureUseDefaultFilter",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "departureFilterResourceTypeId",
+                                "type": {
+                                    "name": "Long",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "departureFilterResourceId",
+                                "type": {
+                                    "name": "Long",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "ticketScanningViewDetailsOnScan",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "showOnlyMyPickups",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "ticketScanningArrivedStatusOnScan",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "offlineCachingEnabled",
+                                "type": {
+                                    "name": "Boolean",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceDeactivate",
+                        "description": "Deactivate an experience",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "checkoutExperienceBookingAnswersUpdate",
+                        "description": "Update answers to questions in an experience booking in an incomplete checkout.",
+                        "args": [
+                            {
+                                "name": "answers",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ExperienceBookingDataInput",
+                                        "kind": "INPUT_OBJECT"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "experienceBookingRescheduleByCustomer",
+                        "description": "Rebooks an experience booking as a customer",
+                        "args": [
+                            {
+                                "name": "experienceBookingRescheduleByCustomerInput",
+                                "type": {
+                                    "name": "ExperienceBookingRescheduleByCustomerInput",
+                                    "kind": "INPUT_OBJECT",
+                                    "ofType": null
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "terminalReaderPresenceChannelAuthentication",
+                        "description": "Used to authenticate a terminal reader to a presence channel",
+                        "args": [
+                            {
+                                "name": "socketId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "deviceLabel",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "channelName",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "terminalId",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "deviceName",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "addGiftCardToBooking",
+                        "description": "Add a gift card payment to a booking",
+                        "args": [
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "giftCardCode",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "String",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "initiatePayment",
+                        "description": "Create a payment intent for the remaining amount of a booking.",
+                        "args": [
+                            {
+                                "name": "sessionId",
+                                "type": {
+                                    "name": "String",
+                                    "kind": "SCALAR",
+                                    "ofType": null
+                                }
+                            },
+                            {
+                                "name": "id",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "ID",
+                                        "kind": "SCALAR"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "type",
+                                "type": {
+                                    "name": null,
+                                    "kind": "NON_NULL",
+                                    "ofType": {
+                                        "name": "CheckoutOptionType",
+                                        "kind": "ENUM"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
